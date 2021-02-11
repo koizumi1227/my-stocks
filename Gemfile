@@ -19,11 +19,6 @@ gem 'webpacker'
 gem 'puma'
 gem 'rack'
 
-# Authentication
-gem 'bcrypt'
-gem 'pundit'
-gem 'devise'
-
 # Configuration
 gem 'config'
 
@@ -60,12 +55,8 @@ gem 'seed-fu'
 gem 'acts_as_list'
 
 # UI/UX
-gem 'meta-tags'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'slim-rails'
-
-# Logging
-gem 'lograge'
 
 # Faster rails boot
 gem 'bootsnap', require: false
@@ -73,16 +64,8 @@ gem 'bootsnap', require: false
 # Email Preview
 gem 'letter_opener_web'
 
-# Faster rails boot
-gem 'bootsnap', require: false
-
 # Seeds
 gem 'gimei'
-
-# group :staging, :development do
-# Email Preview
-# gem 'letter_opener_web'
-# end
 
 group :staging, :development, :test do
   gem 'factory_bot_rails'

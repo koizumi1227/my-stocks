@@ -10,8 +10,8 @@
 .keep
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
+/log/
+/tmp/
 
 # Ignore pidfiles, but keep the directory.
 !/tmp/pids/

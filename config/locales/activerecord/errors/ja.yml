@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        blank: を入力してください
+      models:
