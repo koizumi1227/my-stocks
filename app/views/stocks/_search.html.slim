@@ -1,0 +1,24 @@
+- q = local_assigns[:q]
+
+.box.no-header
+  .box-header.with-border
+    |  検索条件
+    .box-tools
+      = link_to '検索条件リセット', stocks_path, class: 'btn btn-info'
+  .box-body
+    = simple_form_for(q, url: request.path_info, method: :GET, defaults: { wrapper: :horizontal_form, wrapper_html: { class: 'col-md-4' } }) do |f|
+      .row
+        = f.input :tick_cont, label: human(Stock, :tick), required: false
+      .row
+        = f.input :industry_eq, required: false, as: :select, include_blank: true, label: human(Stock, :industry), collection: Stock.distinct.pluck(:industry)
+        = f.input :sector_eq, required: false, as: :select, include_blank: true, label: human(Stock, :sector), collection: Stock.distinct.pluck(:sector)
+        = f.input :country_eq, required: false, as: :select, include_blank: true, label: human(Stock, :country), collection: Stock.distinct.pluck(:country)
+      .row
+        = f.input :per_lteq, required: false, as: :float, include_blank: true, label: "#{human(Stock, :per)}(以下)"
+        = f.input :forward_per_lteq, required: false, as: :float, include_blank: true, label: "#{human(Stock, :forward_per)}(以下)"
+        = f.input :eps_lteq, required: false, as: :float, include_blank: true, label: "#{human(Stock, :eps)}(以下)"
+      .row
+        = f.input :market_cap_lteq, required: false, as: :float, include_blank: true, label: "#{human(Stock, :market_cap)}(以下)",wrapper_html: { class: 'col-md-6' }
+      .row
+        .col-md-12
+          = f.submit '検索', class: 'btn btn-info'

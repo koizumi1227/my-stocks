@@ -1,0 +1,16 @@
+ruby:
+  models = [Stock]
+  font_awesome_classes = { Stock: 'fa fa-user' }
+
+aside.main-sidebar
+  section.sidebar
+    ul.sidebar-menu
+      - models.each do |model|
+        - path = send("#{model.to_s.underscore.pluralize}_path")
+
+        li(class="#{active_if(path)}")
+          a(href="#{path}")
+            i class="#{font_awesome_classes[model.to_s.to_sym] || 'fa fa-user'}"
+            span
+              = human(model)
+              | 管理

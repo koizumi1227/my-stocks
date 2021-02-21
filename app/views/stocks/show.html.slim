@@ -1,0 +1,14 @@
+.box.box-default
+  .box-header.with-border
+    h4.box-title
+      = human(Stock)
+      | 詳細
+    .box-tools
+      = link_to '一覧', stocks_path, class: 'btn btn-primary'
+      = link_to '編集', edit_stock_path(@stock), class: 'btn btn-primary'
+  .box-body.table-responsive
+    table.table.table-hover
+      - Stock.attribute_names.each do |attribute_name|
+        tr
+          th = attribute_name
+          td = @stock.send(attribute_name)

@@ -1,0 +1,24 @@
+ruby:
+  model = local_assigns[:model]
+  q = local_assigns[:q]
+
+.box.no-header
+  .box-header.with-border
+    |  検索条件
+    .box-tools
+      = link_to '検索条件リセット', request.path_info, class: 'btn btn-info'
+  .box-body
+    = simple_form_for(q, url: request.path_info, method: :get, defaults: { wrapper: :horizontal_form, wrapper_html: { class: 'col-md-6' } }) do |f|
+      - model.attribute_names.each_slice(2).each do |attributes|
+        .row
+          - attributes.each do |attribute|
+            - if attribute == 'created_at'
+              = f.input "#{attribute}_gteq", required: false, as: :datetime, label: "#{human(model, attribute.to_sym)}下限", wrapper: :horizontal_multi_select, input_html: { value: DateTime.strptime("1448607600",'%s').to_s }
+              = f.input "#{attribute}_lteq", required: false, as: :datetime, label: "#{human(model, attribute.to_sym)}上限", wrapper: :horizontal_multi_select, input_html: { value: DateTime.strptime("1448607600",'%s').to_s }
+            - elsif attribute == 'updated_at'
+              next
+            - else
+              = f.input "#{attribute}_eq", label: human(model, attribute), required: false
+      .row
+        .col-md-12
+          = f.submit '検索', class: 'btn btn-info'

@@ -1,0 +1,9 @@
+- if flash.present?
+  - flash.each do |key, value|
+    - next if key == 'timedout'
+    - key = "info" if key.in? %w(notice info)
+    - key = "danger" if key.in? %w(alert danger)
+
+    .alert.alert-dismissible(class="alert-#{key}")
+      button.close aria-hidden="true" data-dismiss="alert" type="button"  ×
+      = simple_format(h(value))

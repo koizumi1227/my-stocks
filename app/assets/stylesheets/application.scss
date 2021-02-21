@@ -1,0 +1,44 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ https://github.com/rails/sprockets/issues/474#issuecomment-385274475
+ */
+
+ @import 'bootstrap/dist/css/bootstrap.min';
+ @import 'admin-lte/dist/css/AdminLTE';
+ @import 'admin-lte/dist/css/skins/skin-blue';
+ @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+
+ //// commons
+ //@import 'common/variables';
+ //@import 'common/default';
+ //@import 'common/media_query';
+ //@import 'common/global';
+ //
+ //// mixin
+ //@import 'mixin/font';
+ //@import 'mixin/button';
+ //@import 'mixin/form_size';
+ //
+ //// components
+ //@import 'components/alert';
+ //@import 'components/snackbar';
+ //@import 'components/form';
+ //
+ //// pages
+ //@import 'pages/home';
+ //@import 'pages/stocks';
+ //@import 'pages/stocks_new';
+ //@import 'pages/stocks_calender';
+ //@import 'pages/stocks_confirm';
+ //@import 'pages/stocks_complete';
+ //@import 'pages/terms';

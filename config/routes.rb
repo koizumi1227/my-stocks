@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'home#index'
+  namespace :stocks do
+    resource :all_scrape, only: :update
+    resources :scrape, only: :update
+  end
+  resources :stocks
 end

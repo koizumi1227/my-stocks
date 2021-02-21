@@ -1,0 +1,80 @@
+/* CSS outline -----------------------------------------------
+
+1. Global style
+
+/*------------------------------------------------------------
+
+1. Global style */
+
+@charset "utf-8";
+
+
+body {
+  font-family: Hiragino Sans, "ヒラギノ角ゴシック", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0 30%;
+}
+
+@include max-991px {
+  body {
+    padding: 0 10%;
+  }
+}
+@include max-767px {
+  body {
+    padding: 0;
+  }
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+a {
+  color: $black;
+  &:hover {
+    text-decoration: none;
+    outline:none;
+  }
+}
+
+.backGround {
+  &-lightGray {
+    background-color: $lightGray;
+  }
+  &-skyBlue {
+    background-color: $skyBlue;
+  }
+  &-cyanBlue {
+    background-color: $cyanBlue;
+  }
+}
+
+.color {
+  &-white {
+    color: $white
+  }
+  &-orange {
+    color: $orange;
+  }
+}
+
+.danger {
+  color: $red;
+}
+
+@media screen and (max-width: 991px) {
+  body {
+    .contents {
+      &__button {
+        width: 100%;
+        padding: 10px 30px;
+        font-size: 16px;
+      }
+    }
+  }
+}

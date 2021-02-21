@@ -1,0 +1,23 @@
+ruby:
+  stocks = local_assigns[:stocks]
+
+tbody
+  - if stocks.present?
+    - stocks.each do |stock|
+      tr
+        td= stock.tick
+        td= stock.industry
+        td= stock.per
+        td= stock.forward_per
+        td= stock.eps
+        td= stock.market_cap
+        td
+          = link_to '詳細', stock, class: 'btn btn-default'
+          = link_to '取得', stocks_scrape_path(stock), method: :patch, class: 'btn btn-success', data: { confirm: '取得しますがよろしいですか？' }
+          = link_to '編集', edit_stock_path(stock), class: 'btn btn-primary'
+  - else
+    tr
+      td colspan="20"
+        | 表示する
+        = human(Stock)
+        | はありません

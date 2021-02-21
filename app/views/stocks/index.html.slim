@@ -1,0 +1,23 @@
+.box.box-default
+  .box-header.with-border
+    h4.box-title
+      = human(Stock)
+      | 一覧（#{@stocks_size}件）
+    .box-tools
+      = link_to "全取得", stocks_all_scrape_path, class: 'btn btn-info', method: :patch, data: { confirm: '数分かかりますがよろしいですか？' }
+  .box-body.table-responsive
+    .test
+      = render 'search', q: @q
+    table.table.table-hover.table-striped
+      thead
+        tr
+          th= sort_link(@q, :tick, human(Stock, :tick))
+          th= human(Stock, :industry)
+          th= sort_link(@q, :per, human(Stock, :per))
+          th= sort_link(@q, :forward_per, human(Stock, :forward_per))
+          th= sort_link(@q, :eps, human(Stock, :eps))
+          th= sort_link(@q, :market_cap, human(Stock, :market_cap))
+          th style=("width: 200px;")
+      = render 'table_body', stocks: @stocks
+  .box-footer
+    == pagy_bootstrap_nav_js(@pagy)

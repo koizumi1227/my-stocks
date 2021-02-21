@@ -1,0 +1,8 @@
+ruby:
+  stock = local_assigns[:stock]
+
+= simple_form_for(stock) do |f|
+  .form-input
+    = f.input :tick
+  .form-actions
+    = f.submit class: 'btn btn-default'
