@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   root 'home#index'
   namespace :stocks do
     resource :all_scrape, only: :update
