@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/github-script@v3
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{secrets.TOKEN}}
           script: |
             const date = new Date().toLocaleString({ timeZone: 'Asia/Tokyo' });
             const due_on = date.toISOString()
