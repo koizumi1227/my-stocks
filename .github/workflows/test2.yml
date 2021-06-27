@@ -1,0 +1,24 @@
+name: Create Weekly Milestone
+on:
+  schedule:
+    - cron: '15 10 * * SUN'
+
+jobs:
+  create-milestone:
+    runs-on: ubuntu-latest
+    name: 'create milestone'
+    steps:
+      - uses: actions/checkout@master
+      - name: install jq
+        run: |
+          sudo apt update
+          sudo apt install -y jq
+      - id: milestone
+        name: create milestone
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          due_time=$(date -d"fri 7 days" +"%Y-%m-%dT23:59:59Z")
+          title=$(date -d"mon" +"%Y-%m-%d週")
+          milestone=`.github/workflows/bin/create-milestone.sh ${{ github.repository }} ${title} ${due_time}`
+          echo ::set-output name=milestone_id::$milestone
