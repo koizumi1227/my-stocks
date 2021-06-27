@@ -1,7 +1,7 @@
 name: Create Weekly Milestone
 on:
   schedule:
-    - cron: '40 9 * * SUN'
+    - cron: '50 9 * * SUN'
 
 jobs:
   create-weekly-milestone:
