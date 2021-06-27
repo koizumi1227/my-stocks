@@ -1,7 +1,7 @@
 name: Create Weekly Milestone
 on:
   schedule:
-    - cron: '40 14 * * *'
+    - cron: '10 0 * * *'
 
 jobs:
   create-weekly-milestone:
@@ -11,7 +11,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const date = new Date().toLocaleString({ timeZone: 'Asia/Tokyo' });
+            const date = new Date(Date.now() + ((new Date().getTimezoneOffset() + (9 * 60)) * 60 * 1000));
             date.setDate(date.getDate() + 7)
             const due_on = date.toISOString()
             const endDate = (date.getMonth() + 1) + "/" + date.getDate()
