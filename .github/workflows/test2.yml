@@ -2,7 +2,7 @@
 name: milestone
 on:
   schedule:
-    - cron: '50 11 * * *'
+    - cron: '40 12 * * *'
 
 jobs:
   create-milestone:
@@ -22,4 +22,4 @@ jobs:
           due_time=$(date -d"fri 7 days" +"%Y-%m-%dT23:59:59Z")
           title=$(date -d"mon" +"%Y-%m-%d週")
           milestone=`.github/workflows/create-milestone.sh ${{ github.repository }} ${title} ${due_time}`
-          sudo sh -c "echo ::set-output name=milestone_id::$milestone"
+          echo ::set-output name=milestone_id::$milestone
