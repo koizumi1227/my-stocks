@@ -1,0 +1,23 @@
+name: Create Weekly Milestone
+on:
+  schedule:
+    - cron: '40 9 * * SUN'
+
+jobs:
+  create-weekly-milestone:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const date = new Date().toLocaleString({ timeZone: 'Asia/Tokyo' });
+            const due_on = date.toISOString()
+            const endDate = (date.getMonth() + 1) + "/" + date.getDate()
+            github.issues.createMilestone({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: startDate + " ～ " + endDate,
+              due_on: due_on,
+              description: startDate + "～" + endDate + "のマイルストーン"
+            })
