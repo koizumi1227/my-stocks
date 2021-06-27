@@ -2,7 +2,7 @@
 name: milestone
 on:
   schedule:
-    - cron: '55 12 * * *'
+    - cron: '15 13 * * *'
 
 jobs:
   create-milestone:
